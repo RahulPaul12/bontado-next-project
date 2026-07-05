@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme{
+  --font-zalando-sans: var(--font-zalando-sans), sans-serif;
+}
+
+@layer base{
+    body{@apply font-zalando-sans}
+}
+
+@layer utilities{
+  .container {@apply max-w-6xl mx-auto px-3 sm:px-4 }
+}
