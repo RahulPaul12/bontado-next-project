@@ -1,13 +1,264 @@
 @import "tailwindcss";
 
 @theme{
-  --font-zalando-sans: var(--font-zalando-sans), sans-serif;
+  
+    --color-primary: rgba(255, 140, 57, 1);
+    --color-secondary: rgba(249, 6, 63, 1);
+    --color-paragraph: rgba(110, 113, 145, 1);
+    --color-heading: rgba(31, 31, 57, 1);
+    --shadow-header: 0px 6px 32px 0px rgba(0, 0, 0, 0.04);
+    --shadow-gradientbtn: 0px 8px 12px 0px rgba(246, 58, 33, 0.31);
+    --shadow-btn: 0px 8px 40px 0px rgba(23, 31, 70, 0.08);
+    --shadow-dropdown: 0px 6px 32px 0px rgba(0, 0, 0, 0.04);
+    --breakpoint-xs: 500px;
+    --breakpoint-custom: 1400px;
 }
 
 @layer base{
-    body{@apply font-zalando-sans}
+     body {@apply bg-[#F3F5F7] text-heading}
+     button {@apply cursor-pointer}
+
+    .db-navbar {@apply hidden lg:flex items-center bg-white rounded-full shadow-header p-1}
+    .db-navbar-menu {@apply px-3 h-10 flex items-center font-medium text-sm whitespace-nowrap}
+    .db-navbar-menu.active {@apply flex items-center font-medium text-sm bg-linear-to-r from-secondary to-primary rounded-full text-white shadow-gradientbtn}
+
+    .db-primary-button {@apply flex items-center font-medium text-sm bg-linear-to-r from-secondary to-primary rounded-full text-white shadow-gradientbtn}
+    .db-btn {@apply lg:hidden w-12 h-12 rounded-full bg-white/40 flex items-center justify-center shrink-0 shadow-header}
+    .db-card {@apply p-4 rounded-md shadow-xs bg-white}
+    .db-card-filter { @apply flex flex-wrap items-center justify-center sm:items-start gap-2.5 }
+    .db-card-filter-btn { @apply flex items-center justify-start gap-1.5 pt-2 pb-1.5 px-2.5 text-sm leading-none capitalize rounded-md transition border text-paragraph border-primary bg-white hover:text-primary hover:border-primary/10 hover:bg-primary/5 after:content-['\f107'] after:text-primary after:font-bold after:text-[11px] after:-mt-1 }
+    .db-card-filter-select { @apply cursor-pointer h-9 ltr:pl-2.5 ltr:pr-7 rtl:pr-2.5 rtl:pl-7 text-sm leading-none capitalize appearance-none rounded-md transition border text-primary border-primary bg-white after:content-['\f107']  after:font-bold after:text-[11px] after:-mt-1 }
+    .db-card-filter-btn i { @apply text-sm text-primary  }
+    .db-card-filter-btn span { @apply ltr:pr-1 rtl:pl-1 text-primary }
+    .db-card-filter .db-field-down-arrow { @apply text-primary }
+    .db-card-filter-dropdown-list { @apply absolute top-10 right-0 z-20 p-2 rounded-md bg-white shadow-lg }
+    .db-card-filter-dropdown-menu { @apply flex items-center whitespace-nowrap justify-start gap-2.5 px-3 py-1.5 text-sm rounded-md capitalize transition text-gray-500 hover:text-primary hover:bg-primary/5 }
+    .db-card-filter-dropdown-menu i { @apply w-4 shrink-0 }
+    .language-btn {@apply flex items-center justify-center gap-1.5 w-fit rounded-3xl capitalize text-sm font-medium h-12 px-3 border transition text-heading bg-white border-gray-200}
+
+    .summary-card {@apply p-4 rounded-2xl backdrop-blur-lg border border-white shadow-header}
+    .sales-card {@apply bg-[#FFF7ED99]}
+    .orders-card {@apply bg-[#F2FFEB99]}
+    .customers-card {@apply bg-[#FBFFE799]}
+    .items-card {@apply bg-[#EAFFF799]}
+    .statics-card {@apply p-4 rounded-2xl backdrop-blur-lg border border-white shadow-header bg-linear-to-b from-[#FAFAFA] to-[#FFF7F1]}
+
+    .dropdown-group { @apply relative leading-0 }
+    .dropdown-btn { @apply cursor-pointer }
+    .dropdown-list { @apply z-20 scale-y-0 transition-all duration-300 origin-top p-2 rounded-2xl shadow-dropdown absolute top-11 ltr:right-0 rtl:left-0 backdrop-blur-lg border border-white bg-white/50}
+    .dropdown-list > li {@apply flex items-center justify-start gap-2 py-1.5 px-2.5 rounded-md cursor-pointer hover:text-primary active:text-transparent active:bg-clip-text active:bg-linear-to-b active:from-primary active:to-secondary}
+    .dropdown-list.active { @apply scale-y-100}
+    .profile-dropdown {@apply p-2 w-[300px] rounded-2xl absolute top-16 ltr:right-0 rtl:left-0 z-20 bg-white/40 border border-white backdrop-blur-md shadow-header}
+
+    .text-gradient {@apply text-transparent bg-clip-text bg-linear-to-b from-primary to-secondary}
+    .db-customer-card {@apply p-4 rounded-2xl bg-linear-to-b from-[#FAFAFA] to-[#FFF7F1] shadow-header}
+    .db-product-vertical-card {@apply p-2 rounded-2xl bg-white/50 border border-white}
+    .db-product-horizontal-card {@apply p-2 rounded-2xl bg-white/50 border border-white flex items-center gap-3}
+    .cart-btn {@apply flex items-center gap-2 px-2 py-2 rounded-full text-primary bg-white/50 shadow-btn hover:text-white hover:bg-primary transition-all duration-300}
+    .viewcartBtn {@apply lg:hidden fixed bottom-4 z-38 left-4 right-4 h-16 bg-[#1F1F3999] rounded-full border border-white backdrop-blur-md shadow-[0px_8px_12px_#4545451F] p-2 flex justify-between items-center}
+    .db-field-down-arrow { @apply cursor-pointer relative  after:font-bold after:text-xs after:absolute after:top-1/2 after:-translate-y-1/2 ltr:after:right-3 rtl:after:left-3 }
+    .db-field-down-arrow.pos {@apply w-full relative before:font-bold before:text-base before:absolute before:top-1/2 before:-translate-y-1/2 ltr:before:left-3 rtl:before:right-3}
+    .db-field-down-arrow.pos .custom-select { @apply ltr:pl-8 rtl:pr-8 outline-none rounded-xl w-full h-10 text-sm appearance-none focus-within:border-primary text-heading bg-white border border-[#EFF0F6]}
+    .db-field-down-arrow.pos .custom-select option { @apply ltr:pl-3 rtl:pr-3 }
+    .barcode.pos {@apply w-full relative before:font-bold before:text-base before:absolute before:top-1/2 before:-translate-y-1/2 ltr:before:left-3 rtl:before:right-3}
+
+
+    /* HEADER */
+    .db-header.fixed { @apply bg-white/40 shadow-header }
+    .db-header { @apply fixed top-0 left-0 z-30 w-full p-4 flex items-center justify-between lg:gap-36 bg-white/40 shadow-header transition-all duration-300 }
+    .db-header::before { content: ''; @apply absolute inset-0 -z-10 backdrop-blur-[20px] }
+    .db-header-left { @apply flex items-center w-full md:gap-36 }
+    .db-header-right { @apply shrink-0 w-fit flex items-center gap-2.5 sm:gap-4 }
+    .db-header-logo { @apply flex-auto w-28 shrink-0 }
+    .db-header-widget { @apply text-sm w-7 h-7 leading-7 sm:text-base sm:w-8 sm:h-8 sm:leading-8 text-center rounded-lg }
+    .db-header-lang { @apply w-4 h-4 rounded-lg mx-auto  }
+    .db-header-widget-badge { @apply absolute -top-2 sm:-top-1.5 -right-1 z-10 w-5 h-5 text-center leading-4 rounded-full text-[10px] border-2 border-white text-white bg-primary }
+   
+        /* MAIN CONTENT */
+    .db-main { @apply px-4 md:px-6 pb-4 pt-[80px] lg:pt-[98px] ltr:lg:pl-[235px] rtl:lg:pr-[235px] ltr:lg:pr-4 rtl:lg:pl-4 lg:pb-4 h-dvh overflow-auto transition-all duration-300 bg-linear-to-bl from-[#F3F5F7] via-[#F2F3FB] to-[#F6F0EA] }
+    .db-main.expand { @apply ltr:lg:pl-5 rtl:lg:pr-5}
+
+    /* SIDEBAR */
+    .db-sidebar { @apply flex flex-col justify-between h-dvh fixed top-0 ltr:left-0 rtl:right-0 z-39 w-[250px] lg:w-[220px] p-4 ltr:-translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0 lg:top-20 lg:h-[calc(100vh-64px)] overflow-y-auto transition bg-white/40 backdrop-blur-[20px] ltr:border-r rtl:border-l border-white}
+    .db-sidebar.active { @apply ltr:translate-x-0 rtl:translate-x-0 ltr:lg:-translate-x-full rtl:lg:translate-x-full lg:shadow-none }
+    .db-sidebar-header { @apply flex lg:hidden items-center justify-between mb-3 pb-3 border-b border-[#D9DBE9] }
+
+    .db-sidebar-nav-title { @apply uppercase text-xs mb-3 font-medium tracking-[2px] text-gray-400 }
+    .db-sidebar-nav-item.active .db-sidebar-nav-menu { @apply text-primary bg-primary/5 }
+    .db-sidebar-nav-item.router-link-active .db-sidebar-nav-menu { @apply text-primary bg-primary/5 }
+    .db-sidebar-nav-menu.router-link-active { @apply text-primary bg-primary/5 }
+    .db-sidebar-nav-menu { @apply capitalize w-full flex items-center justify-start text-left rounded-lg gap-3 py-2.5 px-3 transition hover:bg-gray-100 }
+    .db-sidebar-nav-menu i { @apply text-sm }
+    .db-sidebar-nav-menu span { @apply text-base flex-auto ltr:text-left rtl:text-right }
+    .db-sidebar-nav-dropdown { @apply h-0 overflow-hidden transition }
+    .db-sidebar-nav-menu.downarrow { @apply after:font-bold after:text-[10px] after:transition-all after:duration-300 }
+    .db-sidebar-nav-item.active .downarrow { @apply after:rotate-180 }
+    .db-sidebar-nav-dropdown-list { @apply mx-5 my-2 flex flex-col border-l-2 border-gray-100 }
+    .db-sidebar-nav-dropdown-menu { @apply pl-5 pr-2 py-2 rounded-lg text-sm leading-4 capitalize transition hover:bg-gray-100 hover:text-primary }
+
+    .pos-sidebar {@apply p-4 border border-white bg-white/60 backdrop-blur-xl fixed top-0 ltr:right-0 rtl:left-0 ltr:lg:right-5 rtl:lg:left-5 w-full z-90 lg:top-25 lg:w-[380px] h-dvh lg:h-[calc(100dvh-120px)] overflow-y-auto -translate-x-full lg:translate-x-0 transition-all duration-300 rounded-2xl} 
+    .pos-sidebar.active {@apply translate-x-0}
+
+    .custom-switch { @apply inline-flex items-center justify-center cursor-pointer }
+    .custom-switch input { @apply relative w-5 h-3 cursor-pointer before:content-[''] before:inline-block before:absolute before:inset-0 before:w-full before:h-full after:content-[''] after:absolute after:top-1/2 after:left-[30%] after:-translate-y-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:rounded-full after:bg-white after:transition-all after:duration-300 }
+    .custom-switch input:checked { @apply before:bg-primary after:left-[70%] }
+    .custom-switch label { @apply cursor-pointer ltr:pl-2 rtl:pr-2 text-sm uppercase text-paragraph transition-all duration-300 }
+    .custom-switch input:checked + label { @apply text-primary }
+
+    .custom-checkbox { @apply relative w-4 h-4 cursor-pointer }
+    .custom-checkbox-field { @apply absolute z-10 opacity-0 w-full h-full appearance-none cursor-pointer }
+    .custom-checkbox-icon { @apply absolute top-0 left-0 w-full h-full text-center rounded border cursor-pointer border-[#d9dee3] text-white }
+    .custom-checkbox-field:checked + .custom-checkbox-icon { @apply bg-primary border-primary }
+
+    .size-tabs label.active, .shipping-tabs label.active, .quantity-tabs label.active, .refund-tabs label.active, .feature-tabs label.active , .delivery-type label.active, .stock-tabs label.active, .status-tabs label.active, .quantity-tabs label.active, .purchase-tabs label.active, .type-tabs label.active { @apply bg-[#FFF5ED80]! border-primary! }
+    .size-tabs label.active, .shipping-tabs label.active, .refund-tabs label.active, .type-tabs label.active, .feature-tabs label.active, .stock-tabs label.active, .delivery-type label.active, .status-tabs label.active, .purchase-tabs label.active { .custom-radio-field:checked + .custom-radio-span { @apply border-primary!} }
+    .extra .custom-checkbox-field { @apply z-0 }
+    .extra.active { @apply bg-[#FFF5ED80]! border-primary! }
+    .extra.active .custom-checkbox-field:checked + .custom-checkbox-icon { @apply bg-primary border-primary }
+    .addon.active { @apply bg-[#FFF5ED80]! border-primary! }
+
+    
+    /* THIN SCROLL BAR */
+    .thin-scrolling { @apply overflow-y-auto! transition-all! duration-300! }
+    .thin-scrolling:hover::-webkit-scrollbar-thumb { @apply bg-primary! }
+    .thin-scrolling::-webkit-scrollbar { @apply w-[3px]! }
+    .thin-scrolling::-webkit-scrollbar { @apply rounded-2xl! bg-transparent! }
+
+    .transition {@apply transition-all duration-300}
+
+    /* MODAL */
+    .modal { @apply fixed top-0 left-1/2 -translate-x-1/2 z-100 invisible opacity-0 w-full h-full overflow-y-auto transition-all duration-300 bg-[#93939880] backdrop-blur-[15px] }
+
+    .modal.ff-modal.active .modal-dialog { @apply lg:mt-10 lg:mb-32 }
+    .modal.active { @apply visible opacity-100 }
+    .modal-dialog { @apply overflow-y-auto w-full max-h-3/4 sm:max-h-fit sm:h-full h-auto mx-auto max-w-lg rounded-2xl transition-all duration-500 backdrop-blur-lg absolute sm:bottom-auto top-auto -bottom-full sm:-top-full left-1/2 -translate-x-1/2}
+    .modal.active .modal-dialog { @apply sm:top-10 sm:bottom-auto bottom-0}
+    .modal-header { @apply sticky z-10 top-0 flex justify-between gap-5 p-4 border-b border-slate-200 shadow-header backdrop-blur-lg bg-white/85 }
+    .modal-header h3 {@apply text-base font-semibold}
+    .modal-title { @apply capitalize text-lg font-medium }
+    .modal-body {@apply bg-white/85 backdrop-blur-lg}
+    
+    .modal-footer { @apply p-4  bg-white/85 backdrop-blur-lg }
+    .modal-btns { @apply flex flex-wrap justify-end gap-3}
+    .modal-btn-fill { @apply inline-flex items-center gap-1 capitalize text-base md:text-lg font-semibold h-10 md:h-12 px-6 bg-linear-to-r from-secondary to-primary rounded-full text-white}
+    .modal-btn-outline { @apply inline-flex items-center gap-1 capitalize text-base md:text-lg font-semibold h-10 md:h-12 px-6 rounded-full border border-white text-gray-600! bg-white/60 }
+
+    /* BREADCRUMB */
+    .db-breadcrumb { @apply flex flex-col flex-wrap gap-y-2 gap-x-5 items-start justify-center sm:flex-row sm:justify-between my-3}
+    .db-breadcrumb-list { @apply flex flex-wrap items-center justify-center sm:justify-end }
+    .db-breadcrumb-item { @apply capitalize text-sm font-medium text-slate-400 }
+    .db-breadcrumb-link { @apply transition text-slate-600 hover:text-primary after:content-['/'] after:px-1.5 after:text-paragraph }
+
+    .db-outline-btn {@apply rounded-full bg-white/60 border border-white backdrop-blur-lg shrink-0 flex items-center gap-3}
+    
+    /* TABLE */
+    .db-table-responsive { @apply w-full overflow-auto rounded-2xl backdrop-blur-md border border-white bg-white/40}
+    .db-table { @apply table-auto w-full text-left whitespace-nowrap }
+    .db-table.stripe .db-table-body-tr { @apply odd:bg-[#f9fafb]! }
+    .db-table-head { @apply ltr:text-left rtl:text-right border-b-2 border-gray-200 }
+    .db-table-body { @apply ltr:text-left rtl:text-right }
+    .db-table-head-th { @apply px-4 py-3 tracking-[1px] font-medium text-sm uppercase text-[#566a7f] }
+    .db-table-body-tr { @apply border-b border-gray-200}
+    .db-table-body-td { @apply px-4 py-3 font-medium text-base }
+    .db-table-badge { @apply py-1 px-2 rounded-full capitalize text-sm font-medium}
+    .db-table-action { @apply relative w-8 h-8 rounded-full bg-white shadow-dropdown}
+    .db-table-action i { @apply text-sm  m-0.5 rounded transition-all duration-300}
+
+    .db-field-control {@apply focus-within:border-primary border border-[#EFF0F6] h-11 rounded-xl bg-white/60 outline-none px-3 w-full}
+    textarea.db-field-control {@apply h-16}
+    .db-field-title {@apply text-xs font-medium mb-1 capitalize}
+    .db-field-down-arrow { @apply w-full relative after:font-bold after:text-xs after:absolute after:top-1/2 after:-translate-y-1/2 ltr:after:right-3 rtl:after:left-3 }
+
+    .db-field-control[type=file] { @apply leading-11 relative ltr:pr-30 rtl:pl-30 transition flex items-center before:transition-all before:duration-300 before:content-['Upload'] before:absolute before:top-1 before:right-1 before:bottom-1 before:z-10 before:w-fit before:bg-[#FFF5ED] before:flex before:items-center before:p-3 before:text-primary before:text-sm before:font-semibold before:rounded-lg before:cursor-pointer}
+
+    .db-field-control[type=file]::-webkit-file-upload-button,
+    .db-field-control[type=file]::file-selector-button { @apply hidden }
+
+    .db-table-action.view { @apply hover:bg-primary}
+    .db-table-action.view i { @apply text-primary group-hover:text-white text-base}
+    .db-table-action.barcode { @apply hover:bg-primary}
+    .db-table-action.barcode i { @apply text-primary group-hover:text-white text-base}
+    .db-table-action.edit { @apply hover:bg-[#2AC769]}
+    .db-table-action.edit i { @apply text-[#2AC769] group-hover:text-white text-base}
+    .db-table-action.delete { @apply hover:bg-red-500}
+    .db-table-action.delete i { @apply text-red-500 group-hover:text-white text-base}
+    .table-filter-div { @apply h-0 overflow-hidden transition-all duration-500 ease-linear }
+
+    /* TABS */
+    .db-tabBtn { @apply w-fit! flex items-center justify-center gap-2 rounded-lg capitalize py-2 px-3 text-base font-medium hover:text-primary text-paragraph}
+    .db-tabBtn.active { @apply text-white bg-black shadow-[0px_8px_8px_0px_rgba(31,31,57,0.16)]}
+    .db-tabDiv.active { @apply block }
+    .db-tabDiv { @apply hidden }
+    .db-tabDiv { @apply hidden }
+    .db-tabBtn span { @apply whitespace-nowrap text-ellipsis overflow-hidden }
+    .db-tabDiv.active#gridview { @apply grid gap-3 sm:gap-4 grid-cols-[repeat(auto-fill,minmax(240px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(278px,1fr))] mb-8 md:mb-0}
+    .db-tabDiv.active#rowview {@apply grid gap-3 sm:gap-4 grid-cols-[repeat(auto-fill,minmax(240px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(278px,1fr))] mb-8 md:mb-0}
+    
+    .viewbtn.active {@apply w-8! h-8! rounded-full bg-heading text-white shrink-0 flex items-center justify-center}
+    .viewbtn[data-tab="#rowview"] {@apply ps-2 pr-0!}
+    .viewbtn[data-tab="#rowview"].active {@apply p-0!}
+    .viewbtn[data-tab="#gridview"] {@apply pr-2 ps-0!}
+    .viewbtn[data-tab="#gridview"].active {@apply p-0!}
+
+    /* TOOLTIP */
+    .db-tooltip { @apply absolute left-1/2 -translate-x-1/2 text-[10px] whitespace-nowrap font-medium tracking-wide uppercase pt-px pb-0.5 px-[7px] rounded bg-gray-700 text-white after:content-[''] after:absolute after:-bottom-[3px] after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:border-solid after:border-t-4 after:border-4 after:rounded-sm after:border-t-transparent after:border-l-transparent after:border-r-gray-700 after:border-b-gray-700
+    -top-5 opacity-0 invisible transition-all duration-300}
+
+    .db-table-action:hover .db-tooltip { @apply opacity-100 visible -top-full }
+
+    .custom-radio-label{@apply cursor-pointer px-2 py-3 ltr:pr-4 rtl:pl-4 gap-2 rounded-xl flex items-center border transition-all duration-300 border-[#F7F7FC] bg-white}
+    .custom-radio-label h3 {@apply leading-tight}
+    .custom-radio { @apply relative w-4 h-4 cursor-pointer }
+    .custom-radio-field { @apply absolute z-10 opacity-0 w-full h-full appearance-none cursor-pointer }
+    .custom-radio-span { @apply absolute top-0 left-0 w-full h-full text-center rounded-full border cursor-pointer border-[#d9dee3] }
+    .custom-radio-field:checked + .custom-radio-span { @apply border-[5px] bg-white border-primary}
+
+    .thumb-swiper .swiper-slide{@apply rounded-lg}
+    .gallery-swiper .swiper-slide img{@apply w-full!}
+    .swiper-slide-thumb-active {@apply border border-primary relative after:absolute after:inset-0 after:content-[''] after:bg-[#F269061F]}
+    .gallery-swiper:hover .gallery-swiper-navigate { @apply opacity-100! }
+    
+    .required {@apply after:content-['*'] after:text-red-500 after:text-sm}
+
+    .gallery-swiper-button-prev, .gallery-swiper-button-next {@apply after:hidden text-sm sm:text-base w-8 h-8 flex items-center justify-center rounded-full shadow-lg transition text-paragraph bg-white hover:text-white hover:bg-primary}
+    .transition {@apply transition-all duration-300}
+
+    .drp-calendar.right {@apply hidden!}
+    .daterangepicker {@apply z-21!}
+
+    /* APEX CHART CSS */
+    .apexcharts-legend {@apply top-auto! custom:top-1/2! custom:-translate-y-1/2! gap-3}
+    .apexcharts-tooltip { @apply border! border-white/70! bg-white/40! rounded-md! shadow-btn! backdrop-blur-[10px]! overflow-hidden}
+    .apexcharts-tooltip-z-group, .apexcharts-tooltip-goals-group { @apply hidden!}
+    .apexcharts-tooltip-title {@apply pb-0! px-3! mb-0! text-sm! font-medium! text-paragraph! border-none! bg-transparent!}
+    .apexcharts-tooltip-series-group { @apply px-3! text-heading font-semibold!}
+    
+}
+@layer utilities{
+    .container {@apply max-w-[1366px] px-4 lg:px-6 mx-auto}
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
 }
 
-@layer utilities{
-  .container {@apply max-w-6xl mx-auto px-3 sm:px-4 }
+input[type=number] {
+    -moz-appearance:textfield; 
+}
+@media (max-width: 639px) {
+    .filter-dropdown-mobile {
+        position: fixed !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) scaleY(var(--tw-scale-y, 0)) !important;
+        transform-origin: top center !important;
+        width: calc(100vw - 32px) !important;
+        max-width: 320px !important;
+        min-width: unset !important;
+        top: auto !important;
+        margin-top: 8px;
+    }
+    .filter-dropdown-mobile.active {
+        transform: translateX(-50%) scaleY(1) !important;
+    }
+}
 }
