@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Zalando_Sans } from "next/font/google";
+import { Zalando_Sans, Geist } from "next/font/google";
 import "./style/globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const zalandoSans = Zalando_Sans({
   variable: "--font-zalando-sans",
@@ -21,9 +24,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${zalandoSans.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", zalandoSans.variable, "font-sans", geist.variable)}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="">
+        {children}
+      </body>
     </html>
   );
 }

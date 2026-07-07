@@ -1,11 +1,11 @@
+import { Card } from "@/components/ui/card"
 import Link from "next/link"
 
 const RestaurantSettingLayout = ({children}: {children: React.ReactNode})=>{
     return (
-        
         <div className="grid grid-cols-12 gap-4">
             <div className="col-span-3">
-                <div className="db-card">
+                <Card>
                     <ul>
                         <li className="p-2">
                             <Link href="/admin/restaurant-setting/restaurant-details">Restaurant Details</Link>
@@ -23,15 +23,14 @@ const RestaurantSettingLayout = ({children}: {children: React.ReactNode})=>{
                             <Link href="/admin/setting">Settings</Link>
                         </li>
                     </ul>
-                </div>
+                </Card>
             </div>
             <div className="col-span-9">
-                <div className="db-card">
+                <Card>
                     {children}
-                </div>
+                </Card>
             </div>
-        </div>
-         
+        </div>   
     )
 }
 export default RestaurantSettingLayout
