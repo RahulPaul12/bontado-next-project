@@ -33,7 +33,6 @@ const Login = () => {
                                 {errors.email && <p className="text-red-500">{errors.email.message}</p>}
                             </div>
                           </div>
-              
                           <div>
                             <div className="flex items-center justify-between">
                               <label htmlFor="password" className="block text-sm/6 font-medium ">
@@ -57,24 +56,15 @@ const Login = () => {
                               {errors.password && <p className="text-red-500">{errors.password.message}</p>}
                             </div>
                           </div>
-              
                           <div>
                             <button
                               type="submit"
-                              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                            >
-                              Sign in
+                              disabled={isSubmitting}
+                              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                             {isSubmitting ? 'Signing in...' : 'Sign in'}
                             </button>
                           </div>
-
                         </form>
-              
-                        <p className="mt-10 text-center text-sm/6 text-gray-400">
-                          Not a member?{' '}
-                          <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-300">
-                            Start a 14 day free trial
-                          </a>
-                        </p>
                       </div>
                   </div>
             </div>      
