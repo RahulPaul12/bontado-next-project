@@ -133,7 +133,7 @@
 
     .modal.ff-modal.active .modal-dialog { @apply lg:mt-10 lg:mb-32 }
     .modal.active { @apply visible opacity-100 }
-    .modal-dialog { @apply overflow-y-auto w-full max-h-3/4 sm:max-h-fit sm:h-full h-auto mx-auto max-w-lg rounded-2xl transition-all duration-500 backdrop-blur-lg absolute sm:bottom-auto top-auto -bottom-full sm:-top-full left-1/2 -translate-x-1/2}
+    .modal-dialog { @apply overflow-y-auto w-full max-h-3/4 sm:max-h-fit sm:h-full h-auto mx-auto max-w-lg rounded-2xl transition-all duration-500 absolute sm:bottom-auto top-auto -bottom-full sm:-top-full left-1/2 -translate-x-1/2 bg-white}
     .modal.active .modal-dialog { @apply sm:top-10 sm:bottom-auto bottom-0}
     .modal-header { @apply sticky z-10 top-0 flex justify-between gap-5 p-4 border-b border-slate-200 shadow-header backdrop-blur-lg bg-white/85 }
     .modal-header h3 {@apply text-base font-semibold}
@@ -227,6 +227,12 @@
 
     .drp-calendar.right {@apply hidden!}
     .daterangepicker {@apply z-21!}
+
+    .canvas-active {@apply !opacity-100 !visible ltr:!translate-x-0 rtl:!translate-x-0}
+
+    .paper-group {  @apply relative}
+    .paper-dropdown { @apply z-[60] transition-all duration-300 origin-top scale-y-0 absolute top-12 ltr:right-0 rtl:left-0 bg-white w-full p-4 flex flex-col gap-3}
+    .paper-group.active .paper-dropdown { @apply scale-y-100}
 
     /* APEX CHART CSS */
     .apexcharts-legend {@apply top-auto! custom:top-1/2! custom:-translate-y-1/2! gap-3}

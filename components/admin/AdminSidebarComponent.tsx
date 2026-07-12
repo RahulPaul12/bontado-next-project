@@ -3,7 +3,8 @@ import Link from "next/link"
 
 const DashboardSidebarComponent = () => {
     return (
-        <aside className="p-4 shrink-0 w-[357px] h-dvh lg:h-[calc(100dvh-68px)] fixed top-0 lg:top-16 ltr:left-0 rtl:right-0 z-30 thin-scrolling bg-white ltr:max-lg:-translate-x-full rtl:max-lg:translate-x-full shadow-xs">
+        
+        <aside id="admin-sidebar" className="p-4 shrink-0 w-[357px] h-dvh lg:h-[calc(100dvh-68px)] fixed top-0 lg:top-16 ltr:left-0 rtl:right-0 z-30 thin-scrolling bg-white ltr:max-lg:-translate-x-full rtl:max-lg:translate-x-full shadow-xs transition-transform duration-300">
             <nav className="db-sidebar-nav">
                 <div className="db-sidebar-header">
                     <Link href={"#"} className="w-32 shrink-0">Bontado</Link>

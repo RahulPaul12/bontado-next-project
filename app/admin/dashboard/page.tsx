@@ -3,13 +3,13 @@ import Image from "next/image"
 const Dashboard = () => {
     return (
         <div className="db-card">
-           <div className="mb-8">
-            <h3 className="font-semibold text-[26px] leading-10 capitalize text-primary">Good Morning!</h3>
-            <h4 className="font-medium text-[22px] leading-[34px] capitalize">John Doe</h4>
-        </div>
-        <div className="mb-9">
-            <h4 className="font-semibold text-[22px] leading-[34px] mb-3 capitalize">Overview</h4>
-            <div className="grid gap-6 grid-cols-12">
+            <div className="mb-8">
+                <h3 className="font-semibold text-[26px] leading-10 capitalize text-primary">Good Morning!</h3>
+                <h4 className="font-medium text-[22px] leading-[34px] capitalize">John Doe</h4>
+            </div>
+            <div className="mb-9">
+                <h4 className="font-semibold text-[22px] leading-[34px] mb-3 capitalize">Overview</h4>
+                <div className="grid gap-6 grid-cols-12">
                 <div className="col-span-12 sm:col-span-6 xl:col-span-3">
                     <div className="p-4 rounded-lg flex items-center gap-4 bg-[#FF4F99]">
                         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white">
@@ -69,18 +69,18 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div>
-            <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold text-[22px] leading-[34px] mb-3 capitalize">Order Statistics</h4>
-                <div id="date-range" className="min-w-[150px] cursor-pointer py-2 px-4 rounded-lg flex items-center gap-3 border border-primary bg-primary-light">
-                    <span className="capitalize text-base text-primary"></span>
-                    <svg className="fill-primary" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.9465 5.45312H7.79316H4.05317C3.41317 5.45312 3.09317 6.22646 3.5465 6.67979L6.99983 10.1331C7.55317 10.6865 8.45317 10.6865 9.0065 10.1331L10.3198 8.81979L12.4598 6.67979C12.9065 6.22646 12.5865 5.45312 11.9465 5.45312Z"/>
-                    </svg>
                 </div>
             </div>
+            <div>
+                <div className="flex items-center justify-between mb-4">
+                    <h4 className="font-semibold text-[22px] leading-[34px] mb-3 capitalize">Order Statistics</h4>
+                    <div id="date-range" className="min-w-[150px] cursor-pointer py-2 px-4 rounded-lg flex items-center gap-3 border border-primary bg-primary-light">
+                        <span className="capitalize text-base text-primary"></span>
+                        <svg className="fill-primary" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.9465 5.45312H7.79316H4.05317C3.41317 5.45312 3.09317 6.22646 3.5465 6.67979L6.99983 10.1331C7.55317 10.6865 8.45317 10.6865 9.0065 10.1331L10.3198 8.81979L12.4598 6.67979C12.9065 6.22646 12.5865 5.45312 11.9465 5.45312Z"/>
+                        </svg>
+                    </div>
+                </div>
             <div className="grid grid-cols-12 gap-6">
                 <div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-6 xl:col-span-3">
                     <div className="flex items-center gap-4 p-4 rounded-lg shadow-xs bg-white">
@@ -325,7 +325,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         </div>
     )
 }
