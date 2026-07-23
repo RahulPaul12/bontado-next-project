@@ -1,8 +1,9 @@
 'use client'
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
-const HeaderComponent = () => {
+const HeaderComponent = ({data}:any) => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const [term, setTerm] = useState(searchParams.get("name") || "")
@@ -20,7 +21,9 @@ const HeaderComponent = () => {
                     <button type="submit" className="bg-primary text-white px-4 py-2 rounded-md">Search</button>
                 </form>
                 <nav className="w-full flex items-center justify-between gap-3 sm:gap-4">
-                    <Link href="/" className="logo"><h2>Bontado</h2></Link>
+                    <Link href="/" className="active router-link-exact-active" aria-current="page">
+                        <Image width={500} height={500} className="w-24" alt="logo" src={data.theme_logo}/>
+                    </Link>
                     <form className="max-w-lg w-full hidden md:flex gap-4 items-center" onSubmit={handleSearch}>
                         <input type="text" placeholder="Search" className="w-full h-10 px-2 border border-gray-200 rounded-md outline-none" value={term} onChange={(e) => setTerm(e.target.value)} />
                         <button type="submit" className="bg-primary text-white px-4 py-2 rounded-md">Search</button>

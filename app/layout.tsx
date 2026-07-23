@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { Zalando_Sans, Geist } from "next/font/google";
 import "./style/globals.css";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const zalandoSans = Zalando_Sans({
-  variable: "--font-zalando-sans",
   subsets: ["latin"],
+  variable:"--font-zalando",
+  fallback: ["system-ui", "arial", "sans-serif"]
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${zalandoSans.variable} font-sans ${geist.variable}`}
+      className={`h-full antialiased font-sans ${zalandoSans.variable} `}
     >
       <body className="">
         {children}

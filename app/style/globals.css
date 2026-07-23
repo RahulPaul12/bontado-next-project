@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme{
-    --font-admin: 'Zalando sans', sans-serif;
+    --font-sans: var(--font-zalando), system-ui, sans-serif;
     --font-iconly: 'Iconly';
     --color-primary: rgba(255, 140, 57, 1);
     --color-secondary: rgba(249, 6, 63, 1);
@@ -16,7 +16,7 @@
 }
 
 @layer base{
-     body {@apply font-admin bg-[#F3F5F7] text-heading}
+     body {@apply bg-[#F3F5F7] text-heading}
      button {@apply cursor-pointer}
 
     .db-navbar {@apply hidden lg:flex items-center bg-white rounded-full shadow-header p-1}
@@ -77,7 +77,7 @@
     .db-header-widget-badge { @apply absolute -top-2 sm:-top-1.5 -right-1 z-10 w-5 h-5 text-center leading-4 rounded-full text-[10px] border-2 border-white text-white bg-primary }
    
         /* MAIN CONTENT */
-    .db-main { @apply font-admin px-4 md:px-6 pb-4 pt-[80px] lg:pt-[98px] ltr:lg:pl-[235px] rtl:lg:pr-[235px] ltr:lg:pr-4 rtl:lg:pl-4 lg:pb-4 h-dvh overflow-auto transition-all duration-300 bg-linear-to-bl from-[#F3F5F7] via-[#F2F3FB] to-[#F6F0EA] }
+    .db-main { @apply px-4 md:px-6 pb-4 pt-[80px] lg:pt-[98px] ltr:lg:pl-[235px] rtl:lg:pr-[235px] ltr:lg:pr-4 rtl:lg:pl-4 lg:pb-4 h-dvh overflow-auto transition-all duration-300 bg-linear-to-bl from-[#F3F5F7] via-[#F2F3FB] to-[#F6F0EA] }
     .db-main.expand { @apply ltr:lg:pl-5 rtl:lg:pr-5}
 
     /* SIDEBAR */
