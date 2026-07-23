@@ -1,9 +1,15 @@
-import Image from "next/image";
 
-export default function Home() {
+import ProductSectionComponent from "@/components/client/ProductSectionComponent";
+import PromotionSectionComponent from "@/components/client/PromotionSectionComponent";
+import { getProducts } from "@/services/product.service";
+
+export default async function Home() {
+  const products = await getProducts();
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 dark:bg-black dark:text-white h-dvh">
-       <h1>Hello Bontado</h1>
-    </div>
+      <div className="container">
+          <ProductSectionComponent products={products?.data[0].products} />
+          <PromotionSectionComponent />
+          
+      </div>
   );
 }

@@ -133,7 +133,7 @@
 
     .modal.ff-modal.active .modal-dialog { @apply lg:mt-10 lg:mb-32 }
     .modal.active { @apply visible opacity-100 }
-    .modal-dialog { @apply overflow-y-auto w-full max-h-3/4 sm:max-h-fit sm:h-full h-auto mx-auto max-w-lg rounded-2xl transition-all duration-500 absolute sm:bottom-auto top-auto -bottom-full sm:-top-full left-1/2 -translate-x-1/2 bg-white}
+    .modal-dialog { @apply p-4 overflow-y-auto w-full max-h-3/4 sm:max-h-fit sm:h-full h-auto mx-auto max-w-[786px] rounded-2xl transition-all duration-500 absolute sm:bottom-auto top-auto -bottom-full sm:-top-full left-1/2 -translate-x-1/2 bg-white}
     .modal.active .modal-dialog { @apply sm:top-10 sm:bottom-auto bottom-0}
     .modal-header { @apply sticky z-10 top-0 flex justify-between gap-5 p-4 border-b border-slate-200 shadow-header backdrop-blur-lg bg-white/85 }
     .modal-header h3 {@apply text-base font-semibold}
@@ -243,7 +243,7 @@
     
 }
 @layer utilities{
-    .container {@apply max-w-[1366px] px-4 lg:px-6 mx-auto}
+    .container {@apply max-w-[1520px]! w-full px-4 lg:px-6 mx-auto}
     input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; 

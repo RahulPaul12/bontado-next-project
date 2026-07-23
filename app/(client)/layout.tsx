@@ -5,7 +5,9 @@ export default function ClientLayout({children}: {children: React.ReactNode}){
     return (
         <div>
             <HeaderComponent/>
-            {children}
+            <div className="mt-20">
+                {children}
+            </div>
             <FooterComponent/>
         </div>
     )

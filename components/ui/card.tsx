@@ -1,7 +1,4 @@
 import * as React from "react"
-
-import { cn } from "@/lib/utils"
-
 function Card({
   className,
   size = "default",
@@ -11,9 +8,7 @@ function Card({
     <div
       data-slot="card"
       data-size={size}
-      className={cn( "db-card",
-        className
-      )}
+      className="db-card"
       {...props}
     />
   )

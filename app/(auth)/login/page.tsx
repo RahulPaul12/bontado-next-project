@@ -1,6 +1,6 @@
 'use client'
 import { useForm } from "react-hook-form"
-import { loginInput, loginSchema } from "@/lib/validation/auth";
+import { loginInput, loginSchema } from "@/lib/schemas/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
